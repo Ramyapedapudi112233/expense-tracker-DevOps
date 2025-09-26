@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Expense Tracker</title>
+</head>
+<body>
+<h2>Expense Tracker</h2>
+
+<input id="item" placeholder="Expense Name">
+<input id="amount" type="number" placeholder="Amount">
+<button onclick="add()">Add</button>
+
+<ul id="list"></ul>
+<p>Total: ₹<span id="total">0</span></p>
+
+<script>
+let total = 0;
+function add() {
+let name = document.getElementById("item").value;
+let amt = Number(document.getElementById("amount").value);
+
+if(name && amt){
+let li = document.createElement("li");
+li.textContent = name + " - ₹" + amt;
+document.getElementById("list").appendChild(li);
+
+total += amt;
+document.getElementById("total").textContent = total;
+
+document.getElementById("item").value = "";
+document.getElementById("amount").value = "";
+}
+}
+</script>
+</body>
+</html>
